@@ -31,7 +31,9 @@ The backend is developed using **Spring Boot**, the frontend uses **React + Ngin
 
 ---
 
+
 # 🔹 PHASE 1: Database Setup (Amazon RDS – MariaDB)
+
 
 ## Step 1: Create RDS Database
 
@@ -101,7 +103,9 @@ CREATE TABLE students (
 );
 ```
 
+
 # 🔹 PHASE 2: Backend Deployment
+
 
 ## Step 7: Install Docker
 
@@ -111,6 +115,7 @@ Install Docker on the EC2 instance and start the Docker service.
 sudo apt install docker.io -y
 sudo systemctl start docker
 ```
+
 ## Step 8: Clone Project Repository
 
 Clone the EasyCRUD project repository and navigate to the backend directory.
@@ -122,6 +127,7 @@ Move to backend directory
 ```bash
 cd EasyCRUD/backend/
 ```
+
 ## Step 9: Configure Backend Application
 
 Copy the `application.properties` file to the backend root directory and edit it.
