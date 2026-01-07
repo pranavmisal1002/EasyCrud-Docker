@@ -169,3 +169,37 @@ RUN mvn clean package
 WORKDIR target/
 CMD ["java","-jar","student-registration-backend-0.0.1-SNAPSHOT.jar"]
 ```
+## Step 11: Build Backend Docker Image
+
+Build the Docker image for the backend application and verify the image creation.
+```bash
+docker build -t <images-name>:<tag> <dockerfile-path>
+```
+Example :
+```bash
+docker build -t backend:v1 .
+```
+Verify Docker images
+```bash
+docker images
+```
+## Step 12: Run Backend Container
+
+Run the backend Docker container and verify that it is running.
+
+```bash
+docker run -d -p 8080:8080 backend:v1
+```
+Check running containers
+```bash
+docker ps
+```
+## Step 13: Verify Backend
+
+Verify that the backend application is running successfully.
+
+Open a browser and navigate to: 
+```bash
+http://<EC2_PUBLIC_IP>:8080
+```
+✅ **Backend deployed successfully**
