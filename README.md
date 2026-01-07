@@ -59,5 +59,12 @@ The backend is developed using **Spring Boot**, the frontend uses **React + Ngin
 
 ```bash
 sudo apt update -y
+```
+## Step 3: Install MySQL Client
 
+Install MySQL client on the EC2 instance to connect with the Amazon RDS database.
+
+```bash
+sudo apt install mysql-client -y
+```
     
