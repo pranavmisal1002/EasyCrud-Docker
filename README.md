@@ -100,3 +100,52 @@ CREATE TABLE students (
   PRIMARY KEY (id)
 );
 ```
+
+# 🔹 PHASE 2: Backend Deployment
+
+## Step 7: Install Docker
+
+Install Docker on the EC2 instance and start the Docker service.
+
+```bash
+sudo apt install docker.io -y
+sudo systemctl start docker
+```
+## Step 8: Clone Project Repository
+
+Clone the EasyCRUD project repository and navigate to the backend directory.
+
+```bash
+git clone https://github.com/Rohit-1920/EasyCRUD.git
+```
+Move to backend directory
+```bash
+cd EasyCRUD/backend/
+```
+## Step 9: Configure Backend Application
+
+Copy the `application.properties` file to the backend root directory and edit it.
+
+```bash
+cp src/main/resources/application.properties .
+```
+```bash
+nano application.properties
+```
+### Update Configuration Values
+
+Update the following values in the `application.properties` file:
+
+- **RDS Endpoint**
+- **Database Name:** `student_db`
+- **Database Username**
+- **Database Password**
+
+```bash
+server.port=8080
+spring.datasource.url=jdbc:mariadb://<RDS-EndPoint>:3306/student_db
+spring.datasource.username=<username>
+spring.datasource.password=<password>
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
