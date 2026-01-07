@@ -10,18 +10,18 @@ The backend is developed using **Spring Boot**, the frontend uses **React + Ngin
 - **Containerization**: Docker
 
 ## Phase 1: Database Setup (Amazon RDS)
-Step 1: Create RDS Database
-    1.	Login to AWS Console → RDS
-    2.	Click Create database
-    3.	Choose:
+###Step 1: Create RDS Database
+    -1.	Login to AWS Console → RDS
+    -2.	Click Create database
+    -3.	Choose:
          o	Database Engine: MariaDB
          o	Template: Free Tier / Production (as required)
          o	DB Identifier: student-db
          o	Master Username & Password
-    4.	Connectivity:
+    -4.	Connectivity:
          o	VPC: Same VPC as EC2
          o	Public Access: Yes (for testing)
          o	Security Group: Allow 3306 from EC2 Security Group
-    5.	Click Create Database
-    6.	Copy the RDS Endpoint
+    -5.	Click Create Database
+    -6.	Copy the RDS Endpoint
     
