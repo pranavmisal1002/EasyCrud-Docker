@@ -149,3 +149,23 @@ spring.datasource.password=<password>
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
+
+## Step 10: Create Dockerfile for Backend
+
+Create a Dockerfile for the backend application.
+
+```bash
+nano Dockerfile
+```
+Add the following content to the Dockerfile:
+
+```bash
+FROM maven:3.8.5-openjdk-17
+COPY . /opt/
+WORKDIR /opt
+RUN rm -rf src/main/resources/application.properties
+RUN cp -r application.properties src/main/resources/
+RUN mvn clean package
+WORKDIR target/
+CMD ["java","-jar","student-registration-backend-0.0.1-SNAPSHOT.jar"]
+```
