@@ -67,4 +67,36 @@ Install MySQL client on the EC2 instance to connect with the Amazon RDS database
 ```bash
 sudo apt install mysql-client -y
 ```
-    
+## Step 4: Connect to RDS from EC2
+
+Use the RDS endpoint to connect to the MariaDB database from the EC2 instance.
+
+```bash
+mysql -h <RDS-ENDPOINT> -u admin -p
+```
+## Step 5: Database Operations
+
+Execute the following SQL commands inside the MySQL shell:
+
+```sql
+SHOW DATABASES;
+CREATE DATABASE student_db;
+USE student_db;
+```
+## Step 6: Create Students Table
+
+Create the `students` table to store student records.
+
+```sql
+CREATE TABLE students (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255),
+  email VARCHAR(255),
+  course VARCHAR(255),
+  student_class VARCHAR(255),
+  percentage DOUBLE,
+  branch VARCHAR(255),
+  mobile_number VARCHAR(255),
+  PRIMARY KEY (id)
+);
+```
