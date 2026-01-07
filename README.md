@@ -203,3 +203,80 @@ Open a browser and navigate to:
 http://<EC2_PUBLIC_IP>:8080
 ```
 ✅ **Backend deployed successfully**
+
+# 🔹 PHASE 3: Frontend Deployment (Docker + Nginx)
+
+## Step 14: Navigate to Frontend Directory
+
+Navigate to the frontend directory and list all files, including hidden files such as `.env`.
+
+```bash
+cd ../frontend/
+```
+Show hidden files (.env)
+```bash
+ls -a
+```
+## Step 15: Configure Environment File
+
+Edit the `.env` file to configure the backend API URL.
+
+```bash
+nano .env
+```
+Update the value as shown below:
+```bash
+VITE_API_URL=http://<BACKEND_PUBLIC_IP>:8080/api
+```
+## Step 16: Create Frontend Dockerfile
+
+Create a Dockerfile for the frontend application.
+
+```bash
+nano Dockerfile
+```
+Add the following content to the Dockerfile:
+```bash
+FROM node:25-alpine
+COPY . /opt/
+WORKDIR /opt
+RUN npm install
+RUN npm run build
+RUN apk update && apk add apache2
+RUN cp -rf dist/* /var/www/localhost/htdocs/
+EXPOSE 80
+CMD ["httpd","-D","FOREGROUND"]
+```
+## Step 17: Build Frontend Docker Image
+
+Build the Docker image for the frontend application .
+
+```bash
+docker build -t frontend:v1 .
+```
+verify the image creation
+```bash
+docker images
+```
+## Step 18: Run Frontend Container
+
+Run the frontend Docker container.
+
+```bash
+docker run -d -p 80:80 frontend:v1
+```
+verify that it is running
+```bash
+docker ps
+```
+## Step 19: Verify Frontend
+
+Verify that the frontend application is running successfully.
+
+Open a browser and navigate to:
+```bash
+http://<EC2_PUBLIC_IP>
+```
+
+🎉 **EasyCRUD application is live and fully functional!**
+
