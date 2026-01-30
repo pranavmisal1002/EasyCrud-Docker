@@ -121,7 +121,7 @@ sudo systemctl start docker
 Clone the EasyCRUD project repository and navigate to the backend directory.
 
 ```bash
-git clone https://github.com/Rohit-1920/EasyCRUD.git
+git clone https://github.com/Rohit-1920/EasyCRUD-Updated.git
 ```
 Move to backend directory
 ```bash
